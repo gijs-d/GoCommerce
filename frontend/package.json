@@ -1,0 +1,22 @@
+{
+  "name": "webshop-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.13.6",
+    "lucide-solid": "^0.395.0",
+    "solid-js": "^1.8.18"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4",
+    "vite-plugin-solid": "^2.10.2"
+  }
+}

@@ -1,0 +1,244 @@
+@use '../styles/variables.scss' as *;
+
+.aside-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeIn 0.2s ease;
+}
+
+.boer-style-drawer {
+  width: 320px;
+  max-width: 85vw;
+  height: 100vh;
+  background: var(--card-bg);
+  border-radius: 0 !important; /* Geen border-radius */
+  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Bovenste header banner */
+  .drawer-top-banner {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--glass-border);
+    background: var(--input-bg);
+    flex-shrink: 0;
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .brand-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--accent);
+        color: var(--accent-contrast);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1rem;
+      }
+
+      .brand-title {
+        font-size: 1.15rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--text-main);
+      }
+    }
+
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .lang-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .close-icon {
+        color: var(--text-muted);
+        cursor: pointer;
+        display: flex;
+        padding: 4px;
+        &:hover { color: var(--text-main); }
+      }
+    }
+  }
+
+  /* Account tegel over de volle breedte */
+  .drawer-account-box {
+    width: 100%;
+    padding: 1.1rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(30, 41, 59, 0.04);
+    border-bottom: 1px solid var(--glass-border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    flex-shrink: 0;
+
+    &:hover {
+      background: rgba(30, 41, 59, 0.08);
+      border-left-color: var(--accent);
+      padding-left: 2rem;
+    }
+
+    .avatar-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .account-meta {
+      display: flex;
+      flex-direction: column;
+
+      .account-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        letter-spacing: 0.04em;
+      }
+
+      .account-name {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+    }
+  }
+
+  /* Menulijst: 100% breedte per knop */
+  .drawer-nav-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    .menu-item-link {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.95rem 1.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--glass-border-subtle);
+      border-left: 4px solid transparent;
+      background: transparent;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      text-align: left;
+
+      .item-icon {
+        color: var(--text-muted);
+        display: flex;
+        transition: transform 0.2s ease, color 0.2s ease;
+      }
+
+      &:hover {
+        background: linear-gradient(90deg, rgba(30, 41, 59, 0.07) 0%, transparent 100%);
+        border-left-color: var(--accent);
+        padding-left: 2.1rem;
+
+        .item-icon {
+          color: var(--accent);
+          transform: scale(1.15);
+        }
+      }
+
+      &.active {
+        background: linear-gradient(90deg, rgba(37, 99, 235, 0.12) 0%, transparent 100%);
+        border-left-color: var(--accent) !important;
+        color: var(--accent);
+        font-weight: 700;
+
+        .item-icon {
+          color: var(--accent);
+        }
+      }
+
+      &.highlight-admin {
+        color: var(--accent);
+        font-weight: 700;
+      }
+    }
+  }
+
+  /* Uitloggen onderaan */
+  .drawer-footer {
+    border-top: 1px solid var(--glass-border);
+    background: var(--input-bg);
+    flex-shrink: 0;
+
+    .logout-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.75rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--danger);
+      background: transparent;
+      border-left: 4px solid transparent;
+      transition: all 0.2s ease;
+      cursor: pointer;
+
+      .item-icon {
+        display: flex;
+        transition: transform 0.2s;
+      }
+
+      &:hover {
+        background: rgba(239, 68, 68, 0.08);
+        border-left-color: var(--danger);
+        padding-left: 2.1rem;
+
+        .item-icon {
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}

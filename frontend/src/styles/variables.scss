@@ -1,0 +1,45 @@
+:root {
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Professionele, rustige en betrouwbare lichte modus */
+  --bg-gradient: #f8fafc;
+  --bg-color: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --card-bg: #ffffff;
+  --card-bg-hover: #ffffff;
+  --glass-border: rgba(226, 232, 240, 0.9);
+  --glass-border-subtle: #f1f5f9;
+  --glass-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --accent: #1e293b;
+  --accent-glow: rgba(30, 41, 59, 0.15);
+  --accent-contrast: #ffffff;
+  --badge-bg: #0f172a;
+  --badge-text: #ffffff;
+  --input-bg: #f8fafc;
+  --input-border: #cbd5e1;
+  --danger: #dc2626;
+  --success: #15803d;
+}
+
+[data-theme="dark"] {
+  /* Premium strakke donkere modus met hoog contrast */
+  --bg-gradient: #070a12;
+  --bg-color: #070a12;
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+  --card-bg: #0f172a;
+  --card-bg-hover: #1e293b;
+  --glass-border: #334155;
+  --glass-border-subtle: #1e293b;
+  --glass-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6);
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.35);
+  --accent-contrast: #070a12;
+  --badge-bg: #38bdf8;
+  --badge-text: #070a12;
+  --input-bg: #131d35;
+  --input-border: #475569;
+  --danger: #f87171;
+  --success: #34d399;
+}
